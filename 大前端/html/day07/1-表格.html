@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格与表单</title>
+    <style>
+        table{
+            border-collapse: collapse; /* 为表格设置合并边框模型 */
+            width: 100%;
+        }
+        td,th{
+            border: 1px solid #cccccc;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table>
+            <caption>学生管理系统</caption>
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>姓名</th>
+                    <th>学号</th>
+                    <th>性别</th>
+                    <th width="100px">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>jackson</td>
+                    <td>14</td>
+                    <td>男</td>
+                    <td>
+                        <a href="">删除</a>
+                        <a href="">修改</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>mary</td>
+                    <td>12</td>
+                    <td>女</td>
+                    <td>
+                        <a href="">删除</a>
+                        <a href="">修改</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

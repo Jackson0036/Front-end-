@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>网易严选</title>
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="http://at.alicdn.com/t/font_1748703_y0t0wfvyc6d.css">
+  <link rel="stylesheet" href="http://at.alicdn.com/t/font_1754693_alnics09qzc.css">
+  <style>
+    html {
+      font-size: 38px;
+    }
+    body{
+      overflow-x: hidden;
+    }
+    .content {
+      background-color: #f4f4f4;
+      width: 100%;
+      height: 3140px;
+    }
+    /* 底部导航 */
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 1.30667rem;
+      background-color: #ffffff;
+    }
+    .footer > ul {
+      height: 100%;
+      display: flex;
+      padding: .5em;
+    }
+    .footer > ul > li {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+    .footer > ul > li.current{
+      color:#DD1A21
+    }
+    .footer > ul > li .iconfont {
+      font-size: 18px;
+    }
+
+    /* 顶部 */
+    .header {
+      position: fixed;
+      height: 68px;
+      width: 100%;
+      background-color: #ffffff;
+      border-bottom: 1px solid #efefef;
+    }
+    .search_bar {
+      padding:.5em 1em;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    .search_bar > .logo{
+      width: 2rem;
+      font-size: 16px;
+      font-family: '宋体';
+    }
+    .search_bar > .search_box{
+      flex-grow: 1;
+      background-color: #ededed;
+      border-radius: 3px;
+      padding:.5em 1em;
+
+    }
+    .search_bar > .search_box input {
+      width: 90%;
+      background-color: rgba(255, 255, 255, 0);
+      border: none;
+    }
+    .search_bar > .btn_login{
+      width: 1rem;
+      text-align: center;
+      border: 1px solid #DD1A21;
+      color: #DD1A21;
+      border-radius: 3px;
+      margin-left: .5em;
+      line-height: 1.5em;
+      height: 1.5em;
+    }
+
+    .nav_wrapper {
+      position: relative;
+    }
+    .nav_wrapper > .nav {
+      flex-grow: 1;
+      overflow: hidden;
+      margin-right: 2.5rem;
+    }
+    .nav_wrapper > .nav > ul {
+      width: 1600px;
+    }
+    .nav_wrapper > .nav > ul::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .nav_wrapper > .nav > ul > li {
+      float: left;
+      padding: 0 1.3em;
+    }
+    .nav_wrapper >.toggle {
+      width: 2rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: #ffffff;
+    }
+
+    /* content */
+    /* content 1.introduce */
+    .content .introduce img{
+        width: 100%;
+        height: auto;
+        padding: 2em 0;
+        /* position: absolute;
+        left: 0;
+        top: 10%; */
+    }
+    /* content 2.servicePolicy */
+    .content .servicePolicy{
+      background-color: #ffffff;
+    }
+    .content .servicePolicy ul{
+        display: flex;
+        flex-direction: row;
+        padding: 0 2em;
+    }
+    .content .servicePolicy ul > li{
+        width: 33.3%;
+    }
+    .content .servicePolicy .iconfont{
+        color: goldenrod;
+    }
+    /* content 3.products */
+    .content .products{
+      position: relative;
+      background-color: #ffffff;
+    }
+    .content .products img{
+        height: 1.46667rem;
+        width: 1.46667rem;
+    }
+    .content .products ul{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .content .products ul > li{
+        text-align: center;
+        margin: 1%;
+        width: 18%;
+    }
+    .content .products ul > li div{
+        margin-top: .13333rem;
+        /* float: left; */
+    }
+    /* floor */
+    .content .floor{
+      position: relative;
+    }
+    .content .floor .promItem{
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      height: 100%;
+      color: #333;
+      width: 100%;
+    }
+    .content .promGood{
+      position: absolute;
+      top: 14%;
+      left: 10%;
+      width: 2.24rem;
+      height: 2.24rem;
+    }
+    .content .promGood img{
+      width: 2.24rem;
+      height: 2.24rem;
+    }
+    .content .floorFirst{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 .26667rem .10667rem;
+      height: 2.48rem;
+      margin-top: .26667rem;
+    }
+    .content .floorFirst:first-child{
+      margin-bottom: .26667rem;
+    }
+    .content .floorFirst .promItem2{
+      width: 4.68rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      height: 100%;
+      color: #333;
+    }
+    .content .module{
+      margin-top: .5rem;
+      width: 100%;
+      background-color: #fff;
+    }
+    .content .module .moduleTitle{
+      height: 1.2rem;
+      line-height: 1.2rem;
+      text-align: center;
+      font-family: "PingFangSC-Regular";
+      font-size: .42667rem;
+      padding: 0 .4rem;
+      background-color: #fff;
+    }
+    .content .module .moduleTitle .txt{
+      position: relative;
+    }
+    .content .module .moduleTitle .txt::before{
+      left: -.53333rem;
+      content: '';
+      position: absolute;
+      top: .2rem;
+      width: .32rem;
+      height: .04rem;
+      background: #333;
+    }
+    .content .module .moduleTitle .txt::after{
+      right: -.53333rem;
+      content: '';
+      position: absolute;
+      top: .2rem;
+      width: .32rem;
+      height: .04rem;
+      background: #333;
+    }
+    .content .module .module_content{
+      background-color: #fff;
+    }
+    .content .module .module_content>ul::after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .content .module .module_content > ul > li{
+      float: left;
+      margin-left: .2rem;
+    }
+    .content .module .module_content > ul > li .left{
+      width: 4.57333rem;
+      height: 5.78667rem;
+      background-color: #f9e9cf;
+      border-radius: .05333rem;
+    }
+    .content .module .module_content > ul > li .left .up{
+      font-family: "PingFangSC-Regular";
+      font-size: .42667rem;
+      padding: .4rem 0 0 .4rem;
+    }
+    .content .module .module_content > ul > li .left .down{
+      text-align: center;
+    }
+    .content .module .module_content > ul > li .left .down img{
+      width: 3.44rem;
+      height: 3.42667rem;
+      margin: .49333rem .44333rem;  
+    }
+    .content .module .module_content > ul > li .right{
+      width: 4.57333rem;
+      height: 5.78667rem;
+      background-color: #fff;
+      border-radius: .05333rem;
+    }
+    .content .module .module_content > ul > li .right .up{
+      width: 4.57333rem;
+      height: 2.56667rem;
+      border-radius: .05333rem;
+      margin: 0 .05333rem .05333rem 0;
+      padding: .26667rem 0 0 .4rem;
+      background-color: #fbe2d3;
+    }
+    .content .module .module_content > ul > li .right .up .up_title .up_title_1{
+      font-family: "PingFangSC-Regular";
+      font-size: .42667rem;
+    }
+    .content .module .module_content > ul > li .right .up .up_title .up_title_2{
+      font-family: "PingFangSC-Regular";
+      font-size: .32rem;
+      color: #7f7f7f;
+    }
+    .content .module .module_content > ul > li .right .up img{
+      float: left;
+      margin-left: 35%;
+      margin-top: -30%;
+      width: 2.6667rem;
+      height: 2.6667rem;
+    }
+    .content .module .module_content > ul > li .right .down{
+      width: 4.57333rem;
+      height: 2.56667rem;
+      border-radius: .05333rem;
+      margin: 0 .05333rem .05333rem 0;
+      padding: .26667rem 0 0 .4rem;
+      background-color: #ffecc2;
+    }
+    .content .module .module_content > ul > li .right .down .down_title .down_title_1{
+      font-family: "PingFangSC-Regular";
+      font-size: .42667rem;
+    }
+    .content .module .module_content > ul > li .right .down .down_title .down_title_2{
+      font-family: "PingFangSC-Regular";
+      font-size: .29333rem;
+      text-align: center;
+      color: #fff;
+      background-color: #cbb693;
+      padding: 0 .13333rem;
+      height: .42667rem;
+      width: 1.5rem;
+      line-height: .42667rem;
+    }
+    .content .module .module_content > ul > li .right .down img{
+      float: left;
+      margin-left: 35%;
+      margin-top: -30%;
+      width: 2.6667rem;
+      height: 2.6667rem;
+    }
+
+    /* hotSellModule */
+    .content .hotSellModule{
+      margin-top: .5rem;
+      width: 100%;
+    }
+    .content .hotSellModule .module{
+      height: 1.3333rem;
+      line-height: 1.3333rem;
+      font-size: .42667rem;
+      font-family: "PingFangSC-Regular";
+      padding: 0 .4rem;
+      background-color: #fff;
+    }
+    .content .hotSellModule .hotSellModule_content{
+      background-color: #fff;
+      padding: 0 .26667rem .26667rem .4rem;
+    }
+    .content .hotSellModule .hotSellModule_content>ul::after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .content .hotSellModule .hotSellModule_content>ul >li{
+      float: left;
+      width: 2.2rem;
+      height: 2.4rem;
+      background-color: #f5f5f5;
+      border-radius: .05333rem;
+      margin: 0 .13333rem .13333rem 0;
+    }
+    .content .hotSellModule .hotSellModule_content>ul >li:first-child{
+      width: 4.53333rem;
+      height: 2.66667rem;
+      position: relative;
+      background-color: #f9f3e4;
+    }
+    .content .hotSellModule .hotSellModule_content>ul >li:nth-child(2){
+      width: 4.53333rem;
+      height: 2.66667rem;
+      position: relative;
+      background-color: #ebeff6;
+    }
+    .content .hotSellModule .hotSellModule_content>ul >li:nth-child(2),
+    .content .hotSellModule .hotSellModule_content>ul >li:nth-child(6),
+    .content .hotSellModule .hotSellModule_content>ul >li:nth-child(10){
+      margin-right: 0;
+    }
+    .content .hotSellModule .hotSellModule_content .d1{
+      position: relative;
+      font-family: "PingFangSC-Regular";
+      font-size: .37333rem;
+      margin-top: .88rem;
+      padding-left: .32rem;
+    }
+    .content .hotSellModule .hotSellModule_content .d1::before{
+      content: "";
+      position: absolute;
+      left: .33333rem;
+      bottom: -.21333rem;
+      width: .64rem;
+      height: .04333rem;
+      background-color: #333;
+      font-weight: lighter;
+    }
+    .content .hotSellModule .hotSellModule_content .d2{
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    .content .hotSellModule .hotSellModule_content .dd{
+      margin-top: .13333rem;
+      text-align: center;
+    }
+    .content .hotSellModule .hotSellModule_content .img1{
+      width: 2.66667rem;
+      height: 2.66667rem;
+    }
+    .content .hotSellModule .hotSellModule_content .img2{
+      width: 1.6rem;
+      height: 1.6rem;
+      margin: .02667rem 0 0 .30667rem;
+    }
+
+    /* popularItemModule */
+    .content .popularItemModule{
+      margin-top: .5rem;
+      width: 100%;
+      background-color: #fff;
+    }
+    .content .popularItemModule .module{
+      height: 1.33333rem;
+      line-height: 1.33333rem;
+      padding: 0 .4rem;
+    }
+    .content .popularItemModule .module .left{
+      font-family: "PingFangSC-Regular";
+      font-size: .42667rem;
+      float: left;
+    }
+    .content .popularItemModule .module .right{
+      display: block;
+      font-size: .37333rem;
+      float: right;
+      margin-right: .5rem;
+      color: #333;
+      line-height: 1.33333rem;
+    }
+    .content .popularItemModule .module .right i{
+      background-image: url(http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/index-titleArrow-caab97997c.png?imageView&type=webp);
+      background-size: 100% 100%;
+      display: inline-block;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+      width: .17333rem;
+      height: .30667rem;
+      margin: -.06667rem 0 0 .10667rem;
+    }
+    .content .popularItemModule .spItem{
+      width: 9.2rem;
+      height: 3.73333rem;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      background-color: #fef0df;
+      border-radius: .05333rem;
+      margin: 0 .4rem .26667rem;
+    }
+    .content .popularItemModule .spItem img{
+      background: url(http://yanxuan.nosdn.127.net/3235bc71e70f134b5499316fc74337d4.png?imageView&type=webp);
+      background-size: 100% 100%;
+      width: 3.73333rem;
+      height: 3.73333rem;
+      margin-right: .4rem;
+    }
+    .content .popularItemModule .spItem .s1{
+      font-family: "PingFangSC-Regular";
+      font-size: .37333rem;
+      width: 4.66667rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .content .popularItemModule .spItem .s2{
+      font-size: .32rem;
+      color: #7F7F7F;
+      width: 4.66667rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .content .popularItemModule .spItem .s3{
+      font-size: .37333rem;
+      color: #DD1A21;
+    }
+    .content .popularItemModule .indexItem{
+      width: 100%;
+      background-color: #fff;
+      display: flex;
+    }
+    .content .popularItemModule .indexItem .item{
+      padding: 0 0 .17333rem;
+      margin-left: .26667rem;
+      width: 2.88rem;
+    }
+    .content .popularItemModule .indexItem .item img{
+      background-color: #f4f4f4;
+      width: 3rem;
+      height: 3rem;
+    }
+    .content .popularItemModule .indexItem .item .s1{
+      font-size: .32rem;
+      white-space: normal;
+      word-break: break-all;
+      line-height: .48rem;
+      color: #333;
+      text-align: left;
+      font-family: "PingFangSC-Regular";
+      width: 100px;
+      text-overflow: ellipsis;
+      display: -webkit-box; /* 对象作为伸缩盒子模型显示 */
+      -webkit-box-orient: vertical;/* 设置或检索伸缩盒对象的子元素的排列方式 */
+      -webkit-line-clamp: 2; /* 显示的行数 */
+      overflow: hidden; /* 隐藏超出的内容 */
+    }
+    .content .popularItemModule .indexItem .item .s2{
+      font-size: .42667rem;
+      line-height: .64rem;
+      color: #DD1A21;
+      text-align: left;
+      font-family: "PingFangSC-Regular";
+    }
+    .content .popularItemModule .indexItem .item .s3{
+      margin-bottom: .06667rem;
+      height: .4rem;
+      padding: 0 .10667rem;
+      line-height: .4rem;
+      color: #DD1A21;
+      background: rgba(255,255,255,.9);
+      border: 1px solid #DD1A21;
+      border-radius: .2rem;
+      white-space: nowrap;
+      font-size: .24rem;
+      vertical-align: top;
+      display: inline-block;
+      text-align: center;
+    }
+
+    /* flashSaleModule */
+    .content .flashSaleModule{
+      margin-top: .5rem;
+      width: 100%;
+      background-color: forestgreen;
+    }
+    .content .flashSaleModule .moduleTitle{
+      width: 100%;  
+      height: 1.3333rem;
+      line-height: 1.3333rem;
+      padding: 0 .4rem;
+      background-color: #fff;
+    }
+    .content .flashSaleModule .moduleTitle .countdown{
+      display: inline-block;
+      vertical-align: middle;
+      margin: -.08rem 0 0 .16rem;
+    }
+    .content .flashSaleModule .moduleTitle .countdown .hours,.mins,.secs{
+      font-size: .32rem;
+      line-height: .48rem;
+      width: .48rem;
+      height: .48rem;
+      text-align: center;
+      background-color: #333;
+      border-radius: .05333rem;
+      color: #fff;
+      margin: 0 .13333rem;
+      font-family: "PingFangSC-Medium";
+    }
+    .content .flashSaleModule .moduleTitle .countdown .colon{
+      font-size: .37333rem;
+    }
+    .content .flashSaleModule .moduleTitle .left{
+      font-family: "PingFangSC-Regular";
+      font-size: .42667rem;
+      float: left;
+    }
+    .content .flashSaleModule .moduleTitle .right{
+      display: block;
+      font-size: .37333rem;
+      float: right;
+      margin-right: .5rem;
+      color: #333;
+      line-height: 1.33333rem;
+    }
+    .content .flashSaleModule .moduleTitle .right i{
+      background-image: url(http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/index-titleArrow-caab97997c.png?imageView&type=webp);
+      background-size: 100% 100%;
+      display: inline-block;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+      width: .17333rem;
+      height: .30667rem;
+      margin: -.06667rem 0 0 .10667rem;
+    }
+    .content .flashSaleModule .cnt{
+      background-color: white;
+      padding: 0 .13333rem 0 .4rem; 
+    }
+    .content .flashSaleModule .cnt ul::after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .content .flashSaleModule .cnt ul > li{
+      float: left;
+      margin-right: .26667rem;
+      background-color: white;
+      padding-bottom: .4rem;
+    }
+    .content .flashSaleModule .cnt ul > li .indexItem .img{
+      width: 2.88rem;
+      height: 2.88rem;
+      background-color: #f5f5f5;
+      border-radius: 4px;
+      margin-bottom: .16rem;
+    }
+    .content .flashSaleModule .cnt ul > li:nth-child(1),
+    .content .flashSaleModule .cnt ul > li:nth-child(2),
+    .content .flashSaleModule .cnt ul > li:nth-child(3){
+      margin-bottom: 10px;
+    }
+    .content .flashSaleModule .cnt ul > li:nth-child(3),
+    .content .flashSaleModule .cnt ul > li:nth-child(6){
+      margin-right: 0;
+    }
+    .content .flashSaleModule .cnt .indexItem .img{
+      text-align: center;
+    }
+    .content .flashSaleModule .cnt .indexItem .img img{
+      width: 2.88rem;
+      height: 2.88rem;
+    }
+    .content .flashSaleModule .cnt .indexItem .price{
+      padding-left: .26667rem;
+    }
+    .content .flashSaleModule .cnt .indexItem .price .p1{
+      font-size: .37333rem;
+      color: #DD1A21;
+      margin-right: .16rem;
+    }
+    .content .flashSaleModule .cnt .indexItem .price .p2{
+      font-size: .32rem;
+      color: #7f7f7f;
+      text-decoration: line-through;
+    }
+    
+    /* newItemModule */
+    .content .newItemModule{
+      margin-top: .5rem;
+      width: 100%;
+      background-color: #fff;
+    }
+    .content .newItemModule .moduleTitle{
+      height: 1.33333rem;
+      line-height: 1.33333rem;
+      padding: 0 .4rem;
+    }
+    .content .newItemModule .moduleTitle .left{
+      font-family: "PingFangSC-Regular";
+      font-size: .42667rem;
+      float: left;
+    }
+    .content .newItemModule .moduleTitle .right{
+      display: block;
+      font-size: .37333rem;
+      float: right;
+      margin-right: .5rem;
+      color: #333;
+      line-height: 1.33333rem;
+    }
+    .content .newItemModule .moduleTitle .right i{
+      background-image: url(http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/index-titleArrow-caab97997c.png?imageView&type=webp);
+      background-size: 100% 100%;
+      display: inline-block;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+      width: .17333rem;
+      height: .30667rem;
+      margin: -.06667rem 0 0 .10667rem;
+    }
+    .content .newItemModule .indexItem ul::after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .content .newItemModule .indexItem ul > li{
+      float: left;
+      margin-left: .26667rem;
+      width: 2.88rem;
+    }
+    .content .newItemModule .indexItem ul > li:nth-child(1),
+    .content .newItemModule .indexItem ul > li:nth-child(2),
+    .content .newItemModule .indexItem ul > li:nth-child(3){
+      margin-bottom: 0;
+    }
+    .content .newItemModule .indexItem ul > li:nth-child(3),
+    .content .newItemModule .indexItem ul > li:nth-child(6){
+      margin-right: 0;
+    }
+    .content .newItemModule .indexItem img{
+      background-color: #f4f4f4;
+      width: 3rem;
+      height: 3rem;
+    }
+    .content .newItemModule .indexItem .s1{
+      font-size: .32rem;
+      white-space: normal;
+      word-break: break-all;
+      line-height: .48rem;
+      color: #333;
+      text-align: left;
+      font-family: "PingFangSC-Regular";
+      width: 100px;
+      text-overflow: ellipsis;
+      display: -webkit-box; /* 对象作为伸缩盒子模型显示 */
+      -webkit-box-orient: vertical;/* 设置或检索伸缩盒对象的子元素的排列方式 */
+      -webkit-line-clamp: 2; /* 显示的行数 */
+      overflow: hidden; /* 隐藏超出的内容 */
+    }
+    .content .newItemModule .indexItem .s2{
+      font-size: .42667rem;
+      line-height: .64rem;
+      color: #DD1A21;
+      text-align: left;
+      font-family: "PingFangSC-Regular";
+    }
+    .content .newItemModule .indexItem .s3{
+      margin-bottom: .06667rem;
+      height: .4rem;
+      padding: 0 .10667rem;
+      line-height: .4rem;
+      color: #DD1A21;
+      background: rgba(255,255,255,.9);
+      border: 1px solid #DD1A21;
+      border-radius: .2rem;
+      white-space: nowrap;
+      font-size: .24rem;
+      vertical-align: top;
+      display: inline-block;
+      text-align: center;
+    }
+
+    /* shoppingGuideModule */
+    .content .shoppingGuideModule{
+      margin-top: .5rem;
+      width: 100%;
+      background-color: #fff;
+    }
+    .content .shoppingGuideModule .guide ul::after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .content .shoppingGuideModule .guide ul>li{
+      float: left;
+      background-color: #f5f5f5;
+      width: 4.57333rem;
+      height: 3.52rem;
+      margin: .25333rem 0 .25333rem .15333rem; /* 上右下左 */
+      padding: .26667rem 0 0 .26667rem;
+      border-radius: .05333rem;
+    }
+    
+    /* 样式调整 有点多，暂时没找到解决办法，先这么写 */
+    .content .shoppingGuideModule .guide ul>li:nth-child(1),
+    .content .shoppingGuideModule .guide ul>li:nth-child(2){
+      margin: .50666rem 0 .25333rem 0;
+    }
+    .content .shoppingGuideModule .guide ul>li:nth-child(3),
+    .content .shoppingGuideModule .guide ul>li:nth-child(4){
+      margin: 0 0 .50666rem 0;
+    }
+    .content .shoppingGuideModule .guide ul>li:nth-child(1){
+      margin: .50666rem .15333rem .25333rem .15333rem;
+    }
+    .content .shoppingGuideModule .guide ul>li:nth-child(3){
+      margin: 0 .15333rem .50666rem .15333rem;
+    }
+    /* /。。 */
+
+    .content .shoppingGuideModule .guide ul>li:nth-child(2),
+    .content .shoppingGuideModule .guide ul>li:nth-child(4){
+      margin-right: 0;
+    }
+    .content .shoppingGuideModule .guide .d1{
+      padding-left: .13333rem;
+      font-size: .42667rem;
+      font-family: "PingFangSC-Medium";
+    }
+    .content .shoppingGuideModule .guide .d2{
+      padding-left: .13333rem;
+      font-size: .32rem;
+      color: #7f7f7f;
+    }
+    .content .shoppingGuideModule .guide .img .img1{
+      width: 2rem;
+      height: 2rem;
+      float: left;
+      margin-right: .05333rem;
+    }
+    .content .shoppingGuideModule .guide .img .img2{
+      width: 2rem;
+      height: 2rem;
+      float: left;
+      margin-right: .05333rem;
+    }
+    
+    /* ftWrap */
+    .content .ftWrap{
+      margin-top: .5rem;
+      width: 100%;
+      border-top: 1px solid rgba(0,0,0,.15);
+      background-color: #414141;
+    }
+    .content .ftWrap .wrap{
+      text-align: center;
+      padding: .72rem .26667rem .37333rem;
+      width: 10rem;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    .content .ftWrap .wrap .bd{
+      margin-bottom: .48rem;
+    }
+    .content .ftWrap .wrap .bd .goApp{
+      border-radius: 2px;
+      margin-right: .66667rem;
+      width: 2.29333rem;
+      height: .82667rem;
+      line-height: .82667rem;
+      font-size: .32rem;
+      color: #fff;
+      border: 1px solid #999;
+      background-color: transparent;
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+      overflow: hidden;
+    }
+    .content .ftWrap .wrap .bd .goWeb{
+      border-radius: 2px;
+      margin-right: .66667rem;
+      width: 2.29333rem;
+      height: .82667rem;
+      line-height: .82667rem;
+      font-size: .32rem;
+      color: #fff;
+      border: 1px solid #999;
+      background-color: transparent;
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+      overflow: hidden;
+    }
+    .content .ftWrap .wrap .copyRight{
+      font-size: .32rem;
+      line-height: .42667rem;
+      color: #999;
+    }
+
+    /* 固定定位 */
+    .newUserEtrance{
+      position: fixed;
+      right: 0;
+      bottom: 3.2rem;
+      display: block;
+      z-index: 10;
+      animation: .5s moveLeft;
+    }
+    .newUserEtrance .u-icon{
+      background-image: url(http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/wapNewUserEntry-b69d0624fd.png?imageView&type=webp);
+      background-size: 100% 100%;
+      display: inline-block;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+      width: 1.49333rem;
+      height: 1.06667rem;
+    }
+    .m-goToTop{
+      background-image: url(http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/goToTop-f502426678.png?imageView&type=webp);
+      background-size: 1.09333rem 1.09333rem;
+      position: fixed;
+      right: .30667rem;
+      bottom: 1.6rem;
+      width: 1.09333rem;
+      height: 1.09333rem;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <!-- 首行 -->
+      <div class="search_bar">
+        <a href="" class="logo">网易严选</a>
+        <div class="search_box">
+          <input type="text" placeholder="搜索商品">
+        </div>
+        <div class="btn_login">登录</div>
+      </div>
+      <!-- 导航 -->
+      <div class="nav_wrapper">
+        <div class="nav">
+          <ul>
+            <li><a href="">推荐</a></li>
+            <li><a href="">居家生活</a></li>
+            <li><a href="">服饰鞋包</a></li>
+            <li><a href="">美食酒水</a></li>
+            <li><a href="">母婴亲自</a></li>
+            <li><a href="">运动履行</a></li>
+            <li><a href="">数码家电</a></li>
+            <li><a href="">全球特色</a></li>
+          </ul>
+        </div>
+        <div class="toggle">
+          ^
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content">
+        <!-- 推荐 -->
+        <div class="introduce">
+            <img src="./images/1.jpg.webp" alt="图片不存在">
+        </div>
+        <div class="servicePolicy">
+            <ul>
+                <li>
+                    <span class="iconfont icon-airudiantubiaohuizhi-zhuanqu_yiwutong"></span>
+                    <span>网易自营品牌</span>
+                </li>
+                <li>
+                    <span class="iconfont icon-gou"></span>
+                    <span>30天无忧退货</span>
+                </li>
+                <li>
+                    <span class="iconfont icon-jiaoyi"></span>
+                    <span>48小时快速退货</span>
+                </li>
+            </ul>
+        </div>
+        <div class="products">
+            <ul>
+                <li>
+                    <img src="./images/p1.png" alt="图片不存在">
+                    <div>新品首发</div>
+                </li>
+                <li>
+                    <img src="./images/p2.png" alt="图片不存在">
+                    <div>居家生活</div>
+                </li>
+                <li>
+                    <img src="./images/p3.png" alt="图片不存在">
+                    <div>服饰鞋包</div>
+                </li>
+                <li>
+                    <img src="./images/p4.png" alt="图片不存在">
+                    <div>美食酒水</div>
+                </li>
+                <li>
+                    <img src="./images/p5.png" alt="图片不存在">
+                    <div>个护清洁</div>
+                </li>
+                <li>
+                    <img src="./images/p6.png" alt="图片不存在">
+                    <div>母婴亲子</div>
+                </li>
+                <li>
+                    <img src="./images/p7.png" alt="图片不存在">
+                    <div>运动旅行</div>
+                </li>
+                <li>
+                    <img src="./images/p8.png" alt="图片不存在">
+                    <div>数码家电</div>
+                </li>
+                <li>
+                    <img src="./images/p9.png" alt="图片不存在">
+                    <div>全球特色</div>
+                </li>
+                <li>
+                    <img src="./images/p10.gif" alt="图片不存在">
+                    <div>好货抄底</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="floor" style="height: 3.2rem;" data-reactied=".0.4.1.$0">
+          <a class="promItem" style="background: url(https://yanxuan.nosdn.127.net/1b0dbe06618ce68da50067ef5bd9d8ae.gif?imageView&quality=75);background-size: 100% 100%;" data-reactied=".0.4.1.$0.$1"></a>
+          <div class="promGood">
+            <img src="./images/promGood1.png" alt="图片不存在">
+          </div>
+        </div>
+        <div class="floorFirst">
+          <a class="promItem2" style="background: url(https://yanxuan.nosdn.127.net/26b9f7bb6c055ae2a7d74de1be1a5153.png?quality=75&type=webp&imageView&thumbnail=375x0);background-size: 100% 100%;" data-reactied=".0.4.1.$1.$2"></a>
+          <a class="promItem2" style="background: url(https://yanxuan.nosdn.127.net/096d46b8867c94abbe901836a8040285.png?quality=75&type=webp&imageView&thumbnail=375x0);background-size: 100% 100%;" data-reactied=".0.4.1.$1.$3"></a>
+        </div>
+
+        <div class="module">
+          <div class="moduleTitle">
+            <span class="txt">新人专享礼</span>
+          </div>
+          <div class="module_content">
+            <ul>
+              <li>
+                <div class="left">
+                  <div class="up">新人专享礼包</div>
+                  <div class="down">
+                    <img src="./images/content1.png" alt="">
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="right">
+                  <div class="up">
+                    <div class="up_title">
+                      <div class="up_title_1">福利社</div>
+                      <div class="up_title_2">今日特价</div>
+                    </div>
+                    <div class="up_img">
+                      <img src="./images/content2.png.webp" alt="图片不存在">
+                    </div>
+                  </div>
+                  <div class="down">
+                    <div class="down_title">
+                      <div class="down_title_1">新人拼团</div>
+                      <div class="down_title_2">一元起包邮</div>
+                    </div>
+                    <div class="down_img">
+                      <img src="./images/content3.png.webp" alt="图片不存在">
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="hotSellModule">
+          <div class="module">类目热销榜</div>
+          <div class="hotSellModule_content">
+            <ul>
+              <li>
+                <div class="d1">热销榜</div>
+                <div class="d2"> 
+                  <img class="img1" src="./images/hotSellModule1.png.webp" alt="图片不存在">
+                </div>
+              </li>
+              <li>
+                <div class="d1">好评榜</div>
+                <div class="d2"><img class="img1" src="./images/hotSellModule2.png.webp" alt="图片不存在"></div>
+              </li>
+              <li>
+                <div class="dd">居家生活榜</div>
+                <div><img class="img2" src="./images/hotSellModule3.png.webp" alt="图片不存在"></div>
+              </li>
+              <li>
+                <div class="dd">美食酒水榜</div>
+                <div><img class="img2" src="./images/hotSellModule4.png.webp" alt="图片不存在"></div>
+              </li>
+              <li>
+                <div class="dd">个护清洁榜</div>
+                <div><img class="img2" src="./images/hotSellModule5.png.webp" alt="图片不存在"></div>
+              </li>
+              <li>
+                <div class="dd">服饰鞋包榜</div>
+                <div><img class="img2" src="./images/hotSellModule6.png.webp" alt="图片不存在"></div>
+              </li>
+              <li>
+                <div class="dd">数码家电榜</div>
+                <div><img class="img2" src="./images/hotSellModule7.png.webp" alt="图片不存在"></div>
+              </li>
+              <li>
+                <div class="dd">母婴亲子榜</div>
+                <div><img class="img2" src="./images/hotSellModule8.png.webp" alt="图片不存在"></div>
+              </li>
+              <li>
+                <div class="dd">全球特色榜</div>
+                <div><img class="img2" src="./images/hotSellModule9.png.webp" alt="图片不存在"></div>
+              </li>
+              <li>
+                <div class="dd">运动旅行榜</div>
+                <div><img class="img2" src="./images/hotSellModule10.png.webp" alt="图片不存在"></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="popularItemModule">
+          <div class="module">
+            <div class="left">人气推荐</div>
+            <div class="right">
+              <span>更多</span>
+              <i></i>
+            </div>
+          </div>
+
+          <div class="spItem">
+            <div>
+              <img src="./images/swiper.webp" alt="图片不存在">
+            </div>
+            <div>
+              <div class="s1">
+                <span>新贵轻奢8小时，60支锦眠贡缎四件套</span>
+              </div>
+              <div class="s2">
+                <span>高密纯棉贡缎，入门奢享</span>
+              </div>
+              <div class="s3">
+                <span>¥</span>
+                <span>469</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="indexItem">
+            <div class="item">
+              <div>
+                <img src="./images/indexItem1.png.webp" alt="图片不存在">
+              </div>
+              <div class="s1">
+                <span>15分钟快速救脸，射频多功能美容仪</span>
+              </div>
+              <div class="s2">
+                <span>￥</span>
+                <span>899</span>
+              </div>
+            </div>
+            <div class="item">
+              <div>
+                <img src="./images/indexItem2.png.webp" alt="图片不存在">
+              </div>
+              <div class="s1">
+                <span>一锤轻松，高颜值轻羽筋膜按摩仪</span>
+              </div>
+              <div class="s2">
+                <span>￥</span>
+                <span>649</span>
+              </div>
+              <div class="s3">
+                <span>限时购</span>
+              </div>
+            </div>
+            <div class="item">
+              <div>
+                <img src="./images/indexItem3.png.webp" alt="图片不存在">
+              </div>
+              <div class="s1">
+                <span>【浙江专供】一次性日常防护口罩 1.5元/只</span>
+              </div>
+              <div class="s2">
+                <span>￥</span>
+                <span>75</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flashSaleModule">
+          <div class="moduleTitle">
+            <div class="left">限时购</div>
+            <div class="countdown">
+              <span class="hours">22</span>
+              <span class="colon">:</span>
+              <span class="mins">47</span>
+              <span class="colon">:</span>
+              <span class="secs">43</span>
+            </div>
+            <div class="right">
+              <span>更多</span>
+              <i></i>
+            </div>
+          </div>
+          <div class="cnt">
+            <ul>
+              <li>
+                <div class="indexItem">
+                  <div class="img">
+                    <img src="./images/flashSaleModule1.png.webp" alt="图片不存在">
+                  </div>
+                  <div class="price">
+                    <span class="p1">￥1799</span>
+                    <span class="p2">￥1999</span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="indexItem">
+                  <div class="img">
+                    <img src="./images/flashSaleModule2.png.webp" alt="图片不存在">
+                  </div>
+                  <div class="price">
+                    <span class="p1">￥319</span>
+                    <span class="p2">￥399</span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="indexItem">
+                  <div class="img">
+                    <img src="./images/flashSaleModule3.png.webp" alt="图片不存在">
+                  </div>
+                  <div class="price">
+                    <span class="p1">￥1999</span>
+                    <span class="p2">￥2199</span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="indexItem">
+                  <div class="img">
+                    <img src="./images/flashSaleModule4.png.webp" alt="图片不存在">
+                  </div>
+                  <div class="price">
+                    <span class="p1">￥295</span>
+                    <span class="p2">￥369</span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="indexItem">
+                  <div class="img">
+                    <img src="./images/flashSaleModule5.png.webp" alt="图片不存在">
+                  </div>
+                  <div class="price">
+                    <span class="p1">￥1499</span>
+                    <span class="p2">￥1599</span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="indexItem">
+                  <div class="img">
+                  <img src="./images/flashSaleModule6.png.webp" alt="图片不存在">
+                  </div>
+                  <div class="price">
+                    <span class="p1">￥759</span>
+                    <span class="p2">￥899</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="newItemModule">
+          <div class="moduleTitle">
+            <div class="left">新品首发</div>
+            <div class="right">
+              <span>更多</span>
+              <i></i>
+            </div>
+          </div>
+          <div class="indexItem">
+            <ul>
+              <li>
+                <div class="img">
+                  <img src="./images/newItemModule1.png.webp" alt="图片不存在">
+                </div>
+                <div>
+                  <span class="s1">IPL脉冲光子嫩肤脱毛仪</span>
+                </div>
+                <div>
+                  <span class="s2">￥799</span>
+                </div>
+              </li>
+              <li>
+                <div class="img">
+                  <img src="./images/newItemModule2.png.webp" alt="图片不存在">
+                </div>
+                <div>
+                  <span class="s1">柔软的高级色，60支莫兰迪拼色纯棉四件套</span>
+                </div>
+                <div>
+                  <span class="s2">￥799</span>
+                </div>
+              </li>
+              <li>
+                <div class="img">
+                  <img src="./images/newItemModule3.png.webp" alt="图片不存在">
+                </div>
+                <div>
+                  <span class="s1">两款可选 活颜修护水活/盈润面霜 50ml</span>
+                </div>
+                <div>
+                  <span class="s2">￥799</span>
+                </div>
+              </li>
+              <li>
+                <div class="img">
+                  <img src="./images/newItemModule4.png.webp" alt="图片不存在">
+                </div>
+                <div>
+                  <span class="s1">3D纳米防护口罩 10只装（5-15岁儿童用）</span>
+                </div>
+                <div>
+                  <span class="s2">￥799</span>
+                </div>
+                <div class="s3">
+                  特价
+                </div>
+              </li>
+              <li>
+                <div class="img">
+                  <img src="./images/newItemModule5.png.webp" alt="图片不存在">
+                </div>
+                <div>
+                  <span class="s1">专业资质生产，一次性医用口罩</span>
+                </div>
+                <div>
+                  <span class="s2">￥799</span>
+                </div>
+              </li>
+              <li>
+                <div class="img">
+                  <img src="./images/newItemModule6.png.webp" alt="图片不存在">
+                </div>
+                <div>
+                  <span class="s1">惊喜藏在蛋黄里，翻砂卤蛋 245克</span>
+                </div>
+                <div>
+                  <span class="s2">￥799</span>
+                </div>
+                <div class="s3">
+                  满159减20
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="shoppingGuideModule">
+          <div class="guide">
+            <ul>
+              <li>
+                <div class="d1">严选超市</div>
+                <div class="d2">10元凑好物</div>
+                <div class="img">
+                  <img class="img1" src="./images/guide1.png.webp" alt="图片不存在">
+                  <img class="img2" src="./images/guide2.png.webp" alt="图片不存在">
+                </div>
+              </li>
+              <li>
+                <div class="d1">断货补单王</div>
+                <div class="d2">补仓疯抢中</div>
+                <div class="img">
+                  <img class="img1" src="./images/guide3.png.webp" alt="图片不存在">
+                  <img class="img2" src="./images/guide4.png.webp" alt="图片不存在">
+                </div>
+              </li>
+              <li>
+                <div class="d1">员工精选</div>
+                <div class="d2">燕麦片81折</div>
+                <div class="img">
+                  <img class="img1" src="./images/guide5.png.webp" alt="图片不存在">
+                  <img class="img2" src="./images/guide6.png.webp" alt="图片不存在">
+                </div>
+              </li>
+              <li>
+                <div class="d1">回购榜单</div>
+                <div class="d2">口碑超值价</div>
+                <div class="img">
+                  <img class="img1" src="./images/guide7.png.webp" alt="图片不存在">
+                  <img class="img2" src="./images/guide8.png.webp" alt="图片不存在">
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="ftWrap">
+          <div class="wrap">
+            <div class="bd">
+              <a class="goApp" href="http://m.you.163.com/downloadapp?_stat_from=search_sem_bd_45784&appAwakeUrl=http%3a%2f%2fm.you.163.com">下载APP</a>
+              <a class="goWeb" href="https://you.163.com/?_m_forcepc_=true&_m_anonid_=a29bef93-4e84-4ada-ae2c-7f6ed5cb43dc">电脑版</a>
+            </div>
+            <p class="copyRight">
+              <span>网易公司版权所有 © 1997-</span>
+              <span>2020</span>
+              <br>
+              <span>食品经营许可证：JY13301080111719</span>
+            </p>
+          </div>
+        </div>
+        <a href="https://act.you.163.com/act/pub/qAU4P437asfF.html" class="newUserEtrance">
+          <i class="u-icon"></i>
+        </a>
+        <i class="m-goToTop" style="display: inline;"></i>
+    </div>
+
+    <div class="footer">
+      <ul>
+        <li class="current">
+          <span class="iconfont icon-icon_alipay_line"></span>
+          <span>首页</span>
+        </li>
+        <li>
+          <span class="iconfont icon-icon_addresslist"></span>
+          <span>分类</span>
+        </li>
+        <li>
+          <span class="iconfont icon-icon_addmessage"></span>
+          <span>值得买</span>
+        </li>
+        <li>
+          <span class="iconfont icon-icon_at"></span>
+          <span>购物</span>
+        </li>
+        <li>
+          <span class="iconfont icon-icon_boss"></span>
+          <span>我的</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

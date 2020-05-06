@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单元格合并</title>
+    <style>
+        table.money,
+        table.project{
+            width: 90%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        table.money td,
+        table.project td{
+            border: 1px solid #cccccc;
+        }
+        table.project .label{
+            width: 100px;
+        }
+        table.money{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<!-- iframe
+			将外部的一个网页链接进来你当前的网页中 -->
+    <iframe style="height: 30px; float: right;"  frameborder="0" scrolling="no" hspace="0"  src="http://i.tianqi.com/index.php?c=code&a=getcode&id=34&h=25&w=280"></iframe>
+   
+    <iframe src="http://pjjx.1688.com" frameborder="0"></iframe>
+    <div class="container">
+        <table class="money">
+            <tbody>
+                <tr>
+                    <td rowspan="2">摘要</td>
+                    <td colspan="3">原值</td>
+                </tr>
+                <tr>
+                    <td>借方</td>
+                    <td>贷方</td>
+                    <td>净值</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- colspan用来指定单元格横向跨越的列数：colspan就是合并列的，colspan=2的话就是合并两列
+             rowspan用来指定单元格纵向跨越的行数:rowspan就是用来合并行的，比如rowspan=2就是合并两行
+             rowspan通常使用在td和th标签中-->
+        <table class="project">
+            <caption>项目计划进度表</caption>
+            <tbody>
+                <tr>
+                    <td colspan="4">一、项目基本情况</td>
+                </tr>
+                <tr>
+                    <td class="label">项目名称：</td>
+                    <td></td>
+                    <td class="label">项目编号：</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="label">制作人：</td>
+                    <td></td>
+                    <td class="label">审核人：</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="label">项目经理：</td>
+                    <td></td>
+                    <td class="label">制作日期：</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图标测试</title>
+    <style>
+        @font-face {
+            font-family: 'iconfont';  /* project id 1743186 */
+            src: url('//at.alicdn.com/t/font_1743186_kvtf5pafd4l.eot');
+            src: url('//at.alicdn.com/t/font_1743186_kvtf5pafd4l.eot?#iefix') format('embedded-opentype'),
+            url('//at.alicdn.com/t/font_1743186_kvtf5pafd4l.woff2') format('woff2'),
+            url('//at.alicdn.com/t/font_1743186_kvtf5pafd4l.woff') format('woff'),
+            url('//at.alicdn.com/t/font_1743186_kvtf5pafd4l.ttf') format('truetype'),
+            url('//at.alicdn.com/t/font_1743186_kvtf5pafd4l.svg#iconfont') format('svg');
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul>li::before{
+            font-family: "iconfont";
+            content: "\e600";
+        }
+        .iconfont{
+            font-family: "iconfont";
+            font-size: normal;
+        }
+    </style>
+</head>
+<body>
+    <i class="iconfont">&#xe600;</i>
+    <ul class='iconfont'>
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+    </ul>
+</body>
+</html>

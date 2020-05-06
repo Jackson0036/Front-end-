@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日期(时间戳)格式转换（第三方库）</title>
+
+    <script src="http://cdn.staticfile.org/moment.js/2.24.0/moment.min.js"></script>
+</head>
+
+<body>
+    <script>
+        var date = new Date();
+        var time = date.getTime();
+        var result = moment(time).format('YYYY/MM/DD hh:mm:ss');
+        console.log(result);
+
+        var date2 = new Date();
+        console.log(date2);
+        var result2 = moment(date2).format('YYYY/MM/DD hh:mm:ss');
+        console.log(result2);
+</script>
+</body>
+</html>

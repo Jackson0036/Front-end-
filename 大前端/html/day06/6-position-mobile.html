@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>网易严选</title>
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="http://at.alicdn.com/t/font_1748703_y0t0wfvyc6d.css">
+  <link rel="stylesheet" href="http://at.alicdn.com/t/font_1754693_alnics09qzc.css">
+  <style>
+    html {
+
+      font-size: 38px;
+    }
+    
+    .content {
+      background-color: #f4f4f4;
+      height: 5000px;
+    }
+    /* 底部导航 */
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 1.30667rem;
+      background-color: #ffffff;
+    }
+    .footer > ul {
+      height: 100%;
+      display: flex;
+      padding: .5em;
+    }
+    .footer > ul > li {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+    .footer > ul > li.current{
+      color:#DD1A21
+    }
+    .footer > ul > li .iconfont {
+      font-size: 18px;
+    }
+
+    /* 顶部 */
+    .header {
+      position: fixed;
+      height: 68px;
+      width: 100%;
+      background-color: #ffffff;
+      border-bottom: 1px solid #efefef;
+    }
+    .search_bar {
+      padding:.5em 1em;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    .search_bar > .logo{
+      width: 2rem;
+      font-size: 16px;
+      font-family: '宋体';
+    }
+    .search_bar > .search_box{
+      flex-grow: 1;
+      background-color: #ededed;
+      border-radius: 3px;
+      padding:.5em 1em;
+
+    }
+    .search_bar > .search_box input {
+      width: 90%;
+      background-color: rgba(255, 255, 255, 0);
+      border: none;
+    }
+    .search_bar > .btn_login{
+      width: 1rem;
+      text-align: center;
+      border: 1px solid #DD1A21;
+      color: #DD1A21;
+      border-radius: 3px;
+      margin-left: .5em;
+      line-height: 1.5em;
+      height: 1.5em;
+    }
+
+    .nav_wrapper {
+      position: relative;
+    }
+    .nav_wrapper > .nav {
+        /* position: relative; */
+      flex-grow: 1;
+      overflow: hidden;
+      margin-right: 2.5rem;
+    }
+    .nav_wrapper > .nav > ul {
+      width: 1600px;
+    }
+    .nav_wrapper > .nav > ul::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .nav_wrapper > .nav > ul > li {
+      float: left;
+      padding: 0 1.3em;
+    }
+    .nav_wrapper >.toggle {
+      width: 2rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: #ffffff;
+    }
+
+    /* content */
+    /* content 1.introduce */
+    .content .introduce img{
+        width: 100%;
+        height: auto;
+        padding: 2em 0;
+        /* position: absolute;
+        left: 0;
+        top: 10%; */
+    }
+    /* content 2.servicePolicy */
+    .content .servicePolicy{
+      background-color: #ffffff;
+    }
+    .content .servicePolicy ul{
+        display: flex;
+        flex-direction: row;
+        padding: 0 2em;
+    }
+    .content .servicePolicy ul > li{
+        width: 33.3%;
+    }
+    .content .servicePolicy .iconfont{
+        color: goldenrod;
+    }
+    /* content 3.products */
+    .content .products{
+      position: relative;
+      background-color: #ffffff;
+    }
+    .content .products img{
+        height: 1.46667rem;
+        width: 1.46667rem;
+    }
+    .content .products ul{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .content .products ul > li{
+        text-align: center;
+        margin: 1%;
+        width: 18%;
+    }
+    .content .products ul > li div{
+        margin-top: .13333rem;
+        /* float: left; */
+    }
+    .content .floor{
+      position: relative;
+    }
+    .content .floor .promItem{
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      height: 100%;
+      color: #333;
+      width: 100%;
+    }
+    .content .promGood{
+      position: absolute;
+      top: 14%;
+      left: 10%;
+      width: 2.24rem;
+      height: 2.24rem;
+    }
+    .content .promGood img{
+      width: 2.24rem;
+      height: 2.24rem;
+    }
+    .content .floorFirst{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 .26667rem .10667rem;
+      height: 2.48rem;
+      margin-top: .26667rem;
+    }
+    .content .floorFirst:first-child{
+      margin-bottom: .26667rem;
+    }
+    .content .floorFirst .promItem2{
+      width: 4.68rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      height: 100%;
+      color: #333;
+    }
+    .content .module .moduleTitle{
+      height: 1.2rem;
+      width: 100%;
+      line-height: 1.2rem;
+      text-align: center;
+      font-family: "PingFangSC-Regular";
+      font-size: .42667rem;
+      padding: 0 .4rem;
+      background-color: #ffffff;
+      overflow: hidden;
+    }
+    .content .module .moduleTitle span::before{
+      left: -.53333rem;
+      content: "";
+      position: absolute;
+      top: .6rem;
+      width: .32rem;
+      height: .04rem;
+      background: #333;
+      box-sizing: border-box;
+    }
+    .content .module .moduleTitle span{
+      display: inline-block;
+      position: relative;
+    }
+    .content .module .moduleTitle span::after{
+      right: -.53333rem;
+      content: "";
+      position: absolute;
+      top: .6rem;
+      width: .32rem;
+      height: .04rem;
+      background: #333;
+      box-sizing: border-box;
+    }
+    .content .module .content_module{
+      width: 100%;
+      height: 200px;
+      background-color: #f4f4f4;
+    }
+    .content .module .content_module ul::after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .content .module .content_module ul>li{
+      float: left;
+      width: 40%;
+      height: 90px;
+    }
+    .content .module .content_module ul>li .left{
+      width: 40%;
+      height: 200px;
+      margin-left: 10px;
+    }
+    .content .module .content_module ul>li .right_up{
+      margin-bottom: 10px;
+    }
+    .content .module .content_module ul>li .right_up,
+    .content .module .content_module ul>li .right_down{
+      margin-right: 0;
+    }
+    /* .content .module .content_module .left{
+      background-color: #f9e9cf;
+      float: left;
+    }
+    .content .module .content_module .right{
+      background-color: #f4f4f4;
+      float: left;
+    }
+    .content .module .content_module .right .right_up{
+      background-color: #FBE2D3;
+      float: left;
+    }
+    .content .module .content_module .right .right_down{
+      background-color: #FFECC2;
+      float: left;
+    } */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <!-- 首行 -->
+      <div class="search_bar">
+        <a href="" class="logo">网易严选</a>
+        <div class="search_box">
+          <input type="text" placeholder="搜索商品">
+        </div>
+        <div class="btn_login">登录</div>
+      </div>
+      <!-- 导航 -->
+      <div class="nav_wrapper">
+        <div class="nav">
+          <ul>
+            <li><a href="">推荐</a></li>
+            <li><a href="">居家生活</a></li>
+            <li><a href="">服饰鞋包</a></li>
+            <li><a href="">美食酒水</a></li>
+            <li><a href="">母婴亲自</a></li>
+            <li><a href="">运动履行</a></li>
+            <li><a href="">数码家电</a></li>
+            <li><a href="">全球特色</a></li>
+          </ul>
+        </div>
+        <div class="toggle">
+          ^
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+        <!-- 推荐 -->
+        <div class="introduce">
+            <img src="./images/1.jpg.webp" alt="图片不存在">
+        </div>
+        <div class="servicePolicy">
+            <ul>
+                <li>
+                    <span class="iconfont icon-airudiantubiaohuizhi-zhuanqu_yiwutong"></span>
+                    <span>网易自营品牌</span>
+                </li>
+                <li>
+                    <span class="iconfont icon-gou"></span>
+                    <span>30天无忧退货</span>
+                </li>
+                <li>
+                    <span class="iconfont icon-jiaoyi"></span>
+                    <span>48小时快速退货</span>
+                </li>
+            </ul>
+        </div>
+        <div class="products">
+            <ul>
+                <li>
+                    <img src="./images/p1.png" alt="图片不存在">
+                    <div>新品首发</div>
+                </li>
+                <li>
+                    <img src="./images/p2.png" alt="图片不存在">
+                    <div>居家生活</div>
+                </li>
+                <li>
+                    <img src="./images/p3.png" alt="图片不存在">
+                    <div>服饰鞋包</div>
+                </li>
+                <li>
+                    <img src="./images/p4.png" alt="图片不存在">
+                    <div>美食酒水</div>
+                </li>
+                <li>
+                    <img src="./images/p5.png" alt="图片不存在">
+                    <div>个护清洁</div>
+                </li>
+                <li>
+                    <img src="./images/p6.png" alt="图片不存在">
+                    <div>母婴亲子</div>
+                </li>
+                <li>
+                    <img src="./images/p7.png" alt="图片不存在">
+                    <div>运动旅行</div>
+                </li>
+                <li>
+                    <img src="./images/p8.png" alt="图片不存在">
+                    <div>数码家电</div>
+                </li>
+                <li>
+                    <img src="./images/p9.png" alt="图片不存在">
+                    <div>全球特色</div>
+                </li>
+                <li>
+                    <img src="./images/p10.gif" alt="图片不存在">
+                    <div>好货抄底</div>
+                </li>
+            </ul>
+        </div>
+        <div class="floor" style="height: 3.2rem;" data-reactied=".0.4.1.$0">
+          <a class="promItem" style="background: url(https://yanxuan.nosdn.127.net/1b0dbe06618ce68da50067ef5bd9d8ae.gif?imageView&quality=75);background-size: 100% 100%;" data-reactied=".0.4.1.$0.$1"></a>
+          <div class="promGood">
+            <img src="./images/promGood1.png" alt="图片不存在">
+          </div>
+        </div>
+        <div class="floorFirst">
+          <a class="promItem2" style="background: url(https://yanxuan.nosdn.127.net/26b9f7bb6c055ae2a7d74de1be1a5153.png?quality=75&type=webp&imageView&thumbnail=375x0);background-size: 100% 100%;" data-reactied=".0.4.1.$1.$2"></a>
+          <a class="promItem2" style="background: url(https://yanxuan.nosdn.127.net/096d46b8867c94abbe901836a8040285.png?quality=75&type=webp&imageView&thumbnail=375x0);background-size: 100% 100%;" data-reactied=".0.4.1.$1.$3"></a>
+        </div>
+
+        <!-- 新人专享 -->
+        <div class="module">
+          <div class="moduleTitle" data-reactied=".0.4.2.0">
+            <span data-reactied=".0.4.2.0.0">新人专享礼</span>
+          </div>
+          <div class="content_module">
+            <ul>
+              <li>
+                <div class="left"></div>
+              </li>
+              <li>
+                <div class="right_up"></div>
+              </li>
+              <li>
+                <div class="right_down"></div>
+              </li>
+            </ul>
+            <!-- <div class="left">
+            </div>
+            <div class="right">
+              <div class="right_up"></div>
+              <div class="right_down"></div>
+            </div> -->
+          </div>
+        </div>
+        
+    </div>
+
+    <div class="footer">
+      <ul>
+        <li class="current">
+          <span class="iconfont icon-icon_alipay_line"></span>
+          <span>首页</span>
+        </li>
+        <li>
+          <span class="iconfont icon-icon_addresslist"></span>
+          <span>分类</span>
+        </li>
+        <li>
+          <span class="iconfont icon-icon_addmessage"></span>
+          <span>值得买</span>
+        </li>
+        <li>
+          <span class="iconfont icon-icon_at"></span>
+          <span>购物</span>
+        </li>
+        <li>
+          <span class="iconfont icon-icon_boss"></span>
+          <span>我的</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

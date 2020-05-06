@@ -1,0 +1,483 @@
+/*重置样式*/
+body,ul{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
+
+/*公共样式*/
+.wrapper{
+    width: 1210px;
+    margin: 0 auto; /* 设置块元素居中,给块元素一个宽度 */
+    background-color: #ffffff;
+}
+
+/* 1.导航栏 */
+.nav{
+    background-color: white;
+    width: 100%;
+    height: 30px;
+}
+.nav ul>li::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.nav ul>li{
+    font-family: '微软雅黑';
+    font-weight: bold;
+    text-align: center;
+}
+.nav ul>li:hover{
+    color: brown;
+}
+
+.nav ul>li{
+    width: 109px;
+    height: 30px;
+    background-color: white;
+    float: left;
+    margin-right: 0;
+}
+.nav ul>li:first-child{
+    text-align: left;
+    width: 55px;
+}
+.nav ul>li:last-child{
+    text-align: right;
+    width: 55px;
+}
+.nav ul>li:nth-child(10){
+    font-weight: lighter;
+    margin-right: 0;
+    width: 10px;
+    /* text-align: center; */
+}
+.nav ul>li:last-child{
+    margin-right: 0;
+}
+
+.nav .c1{
+    position: fixed;
+}
+/* directory */
+.nav .directory{
+    width: 500px;
+    height: 500px;
+    background-color: yellow;
+    position: absolute;
+    display: none;
+}
+.nav .directory h1{
+    color: black;
+    margin-left: 0;
+}
+.nav .directory a{
+    width: 200px;
+    height: 20px;
+    color: black;
+    text-decoration: none;
+}
+.nav .c1:hover > .directory{
+    display: block;
+}
+
+/* 2.首页样式 */
+.firstpage{
+    width: 100%;
+    height: 420px;
+    background-color: #f4f4f4;
+    text-align: center;  /* 设置行内元素居中 */
+}
+.firstpage:hover{
+    background-color: #f4f4f4;
+}
+
+/* 3.活动页面 */
+.activities{
+    margin-top: 100px;
+    background-color: white;
+    width: 100%;
+    height: 450px;
+}
+.activities ul>li{
+    position: relative;
+    width: 270px;
+    height: 400px;
+    background-color: white;
+    float: left;
+    margin-right: 30px;
+    text-align: center;  /* 设置行内元素居中 */
+}
+.activities ul>li:hover{
+    background-color: #f4f4f4;
+}
+.activities ul>li::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.activities ul>li:last-child{
+    margin-right: 0;
+}
+.activities p{
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+}
+.activities .price{
+    color: red;
+    font-weight: normal;
+}
+
+/*3.2 人气*/
+.renqi{
+    margin-top: 100px; /* 与相邻顶部元素间隔30px */
+    background-color: #ffffff;
+}
+.renqi ul::after{  /* 伪元素支撑父元素，显示父元素的高度 */
+    content: "";
+    display: block;
+    clear: both;
+
+}
+.renqi ul>li{
+    float: left;  /* 浮点布局 */
+    margin-right: 30px;
+    text-align: center;
+}
+.renqi ul>li{
+    width: 240px;
+    height: 250px;
+    background-color: white;
+}
+.renqi ul>li:hover{
+    background-color: #f4f4f4;
+}
+
+.renqi ul>li:first-child{
+    width: 400px;
+    height: 530px;
+}
+
+.renqi #p1{
+    width: 80px;
+    height: 20px;
+    background-color: orange;
+    color: white;
+    margin: 0 auto;
+}
+.renqi #p2{
+    font-weight: bold;
+}
+.renqi #p3{
+    float: left;
+    margin: 0 auto;
+    margin-left: 40%;
+}
+.renqi #p3{
+    color: red;
+}
+.renqi span{
+    color: grey;
+    text-decoration: line-through;
+}
+.renqi ul >li:nth-child(4),
+.renqi ul>li:nth-child(7){
+    margin-right: 0;
+}
+
+.renqi ul >li:nth-child(2),
+.renqi ul >li:nth-child(3),
+.renqi ul >li:nth-child(4){
+    margin-bottom: 30px; /* 与相邻底部元素间隔30px */
+}
+
+/* 福利社 */
+.fulishe{
+    margin-top: 100px;
+    background-color: #ffffff;
+    width: 100%;
+    height: 540px;
+}
+.jingxijia ul>li{
+    float: left;
+    width: 300px;
+    height: 540px;
+    background-color: white;
+    margin-right: 30px;
+    text-align: center;
+}
+.fulishe .tejia{
+    margin-right: 30px;
+}
+.tejia ul>li{
+    float: left;
+    width: 260px;
+    height: 150px;
+    background-color: white;
+    margin-right: 30px;
+}
+.tejia ul>li:hover{
+    background-color: #f4f4f4;
+}
+.tejia ul>li:first-child{
+    width: 550px;
+    height: 60px;
+    margin-bottom: 30px;
+    color: black;
+    line-height: 60px;
+}
+.tejia ul>li:nth-child(4),
+.tejia ul>li:nth-child(5){
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.tunhuo ul>li{
+    float: right;
+    width: 300px;
+    height: 540px;
+    background-color: white;
+    margin-top: -240px;
+    margin-right: 0px;
+}
+.tunhuo p:hover{
+    background-color: #f4f4f4;
+}
+.tunhuo p,span{
+    height: 50px;
+    line-height: 50px;
+
+}
+
+/* 居家生活 */
+.jujiashenghuo{
+    margin-top: 100px;
+    width: 100%;
+    height: 800px;
+    background-color: white;
+}
+
+.jujiashenghuo ul::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.jujiashenghuo ul>li{
+    width: 280px;
+    height: 400px;
+    float: left;
+    margin-right: 0;
+    background-color: white;
+    text-align: center;
+}
+.jujiashenghuo ul>li:hover{
+    background-color: #f4f4f4;
+}
+.jujiashenghuo ul>li:first-child{
+    width: 1100px;
+    height: 315px;
+    margin-left: 0;
+    margin-bottom: 30px;
+}
+.jujiashenghuo ul>li:last-child{
+    margin-right: 0;
+}
+.jujiashenghuo #p1{
+    width: 120px;
+    height: 20px;
+    background-color: orange;
+    color: white;
+    margin: 0 auto;
+}
+.jujiashenghuo #p3{
+    width: 60px;
+    height: 20px;
+    background-color: orange;
+    color: white;
+}
+.jujiashenghuo #p2{
+    color: red;
+}
+.jujiashenghuo span{
+    color: grey;
+    text-decoration: line-through;
+}
+
+.jujiashenghuo .haowu ul::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.jujiashenghuo .haowu ul>li{
+    float: left;
+    width: 80px;
+    height: 20px;
+    text-align: center;
+}
+.jujiashenghuo .haowu ul>li a{
+    text-decoration: none;
+    color: black;
+}
+.jujiashenghuo .haowu ul>li:first-child{
+    margin-left: 750px;
+}
+.jujiashenghuo .haowu ul>li:nth-child(2),
+.jujiashenghuo .haowu ul>li:nth-child(4){
+    font-weight: bold;
+    margin-right: 0;
+    width: 10px;
+}
+.jujiashenghuo .haowu ul>li:last-child{
+    font-weight: bold;
+    margin-right: 0;
+    width: 10px;
+    margin-right: 100px;
+}
+
+/* 甄选家 */
+.zhenxuanjia{
+    margin-top: 100px;
+    background-color: white;
+    width: 100%;
+    height: 400px;
+}
+.zhenxuanjia ul>li{
+    float: left;
+    width: 430px;
+    height: 135px;
+    margin-right: 30px;
+    background-color: white;
+    text-align: center;
+}
+.zhenxuanjia ul>li:hover{
+    background-color: #f4f4f4;
+}
+.zhenxuanjia ul>li:first-child{
+    width: 720px;
+    height: 400px;
+    margin-right: 30px;
+}
+.zhenxuanjia ul>li:nth-child(2){
+    margin-bottom: 60px;
+}
+.zhenxuanjia ul>li:nth-child(2),
+.zhenxuanjia ul>li:nth-child(3){
+    margin-right: 0;
+}
+
+.title{
+    position: relative;
+    height: 50px;
+    /* text-align: center; */
+}
+.title h1,h2{
+    position: absolute;
+    left: 19%;
+    float: left;
+    text-align: center;
+}
+.title h2{
+    font-size: 18px;
+    font-weight: normal;
+    margin-left: 150px;
+    margin-top: 40px;
+}
+
+/* 盒子 */
+.box1{
+    border: 1px;
+    width: 110px;
+    height: 100px;
+    background-color: #ffffff;
+    position: fixed;
+    left: px;
+    top: 460px;
+}
+
+.box1 p{
+    color: red;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+.box1 a{
+    color: black;
+    text-decoration: none;
+    float: right;
+    margin-right: 0;
+}
+.box1 a:hover{
+    color: red;
+}
+
+
+
+
+.box2{
+    width: 80px;
+    height: 500px;
+    background-color: #ffffff;
+    position: fixed;
+    right: 0;
+    top: 460px;
+    margin-bottom: 10px;
+}
+.box2 .first{
+    box-sizing: border-box;
+    height: 150px;
+    border-bottom: 1px solid #ffffff;
+}
+.box2 .second{
+    box-sizing: border-box;
+    height: 150px;
+    border-bottom: 1px solid #ffffff;
+}
+.box2 .third{
+    box-sizing: border-box;
+    height: 80px;
+    line-height: 80px;
+    border-bottom: 1px solid #ffffff;
+}
+.box2 .four{
+    box-sizing: border-box;
+    height: 80px;
+    border-bottom: 1px solid #ffffff;
+}
+
+.box2 > div{
+    position: relative;
+}
+.box2 > div > .dingyue{
+    width: 300px;
+      height: 260px;
+      background-color: pink;
+      position: absolute;
+      right: 100px;
+      top: 0;
+      display: none;
+}
+.box2 .dingyue{
+    color: black;
+    font-size: 20px;
+    text-align: center;
+}
+.box2 > div:hover > .dingyue{
+    display: block;
+}
+
+
+.box2 a{
+    color: black;
+    text-decoration: none;
+}
+.box2 .second span{
+    color: grey;
+}
+.box2 .second p{
+    color: red;
+}
